@@ -1,0 +1,133 @@
+﻿@{
+    ViewBag.Title = "Журнал проектов";
+    Layout = "~/Views/Shared/_ChangeLog.cshtml";
+}
+
+
+ <div id="HOME">
+    </div>
+
+    <section class="about page" id="ABOUT">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <!-- ABOUT US SECTION TITLE-->
+                    <div class="section_title">
+                        <h2>@ViewBag.TitleProject</h2>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="inner_about_area">
+            <div class="container">
+                <div class="row">
+
+                    <div id="container"></div>
+                    <div id="progress" style="display:none">
+                        <h4>Loading...</h4>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!-- End About Us -->
+
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+
+    <script type="text/javascript">
+
+        var pageSize = 2;
+        var pageIndex = 0;
+
+        $(document).ready(function () {
+            GetData();
+
+            $(window).scroll(function () {
+
+                if ($(window).scrollTop() ==
+                   $(document).height() - $(window).height()) {
+                    GetData();
+                }
+            });
+        });
+
+        function GetData() {
+
+            var sContainer = "";
+
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetData", "ChangeLog")',
+                data: { "pageindex": pageIndex, "pagesize": pageSize },
+                dataType: 'json',
+                success: function (data) {
+                    if (data != null) {
+
+                        for (var i = 0; i < data.length; i++) {
+
+                            sContainer =
+                                 "<div class=\"col-md-6\">"
+                                    + "<div class=\"about_phone wow fadeInLeft\" data-wow-duration=\"1s\" data-wow-delay=\".5s\">"
+                                         + "<img src=\"" + data[i].AuthorAvatarUrl + "\">"
+                                         + "<br /> <h2>" + data[i].AuthorDisplayName + "</h2>"
+                                         + "<h4>"
+                                             + "<a target=\"_blank\" href=\"mailto:\"" + data[i].AuthorEmailAddress + "?subject=Уважаемая(ый) " + data[i].AuthorDisplayName + "><span>Написать письмо</span></a> "
+                                             + " | "
+                                             + "<a target=\"_blank\" href=\"" + data[i].AuthorLinks + "\">Профиль пользователя</a>"
+                                         + "</h4>"
+                                      + "</div>"
+                                  + "</div>"
+                                  + "<div class=\"col-md-6  wow fadeInRight\" data-wow-duration=\"1s\" data-wow-delay=\".5s\">"
+
+                                      + "<div class=\"inner_about_desc\">"
+         + "<h3> <small>Номер пулла:</small>  " + data[i].id + "</h3>"
+                                         + "<div class=\"single_about_area fadeInUp wow\" data-wow-duration=\".5s\" data-wow-delay=\"1s\">"
+                                             + "<h3> "
+                                             + "<br> <small>Название пулла:</small> " + data[i].title
+                                             + "<br> <small>Дата изменения:</small> " + data[i].updatedDate
+                                             + "<br> <small>Описание:</small> </h3>"
+                                             + "<p> " + data[i].descriptionAsHtml + "</p>"
+                                         + "</div>"
+
+                                         + "<br /><h3><strong>Аудиторы:</strong></h3><br />";
+
+                            if (data[i].Reviewers == null) {
+                                sContainer += "<span>Не определены</span>";
+                            }
+                            else {
+                                for (var j = 0; j < data[i].Reviewers.length; j++) {
+                                    sContainer += "<h3><img src=" + data[i].Reviewers[j].AuthorAvatarUrl + ">"
+                                               + data[i].Reviewers[j].AuthorDisplayName
+                                              + "<br />"
+                                                    + "<small> <a target=\"_blank\" href=\"mailto:\"" + data[i].Reviewers[j].AuthorEmailAddress + "?subject=Уважаемая(ый) " + data[i].Reviewers[j].AuthorDisplayName + "><span>Написать письмо</span></a>"
+                                                    + " | "
+                                                    + " <a target=\"_blank\" href=\"" + data[i].Reviewers[j].AuthorLinks + "\">Профиль пользователя</a></small>"
+                                                + " </h3>"
+                                }
+                            }
+
+                            sContainer += "</div>"
+                                    + " </div> <hr> ";
+
+                            $("#container").append(sContainer);
+                        }
+                        pageIndex++;
+                    }
+                },
+                beforeSend: function () {
+                    $("#progress").show();
+                },
+                complete: function () {
+                    $("#progress").hide();
+                },
+                error: function () {
+                    alert("Error while retrieving data!");
+                }
+            });
+
+        }
+
+    </script>

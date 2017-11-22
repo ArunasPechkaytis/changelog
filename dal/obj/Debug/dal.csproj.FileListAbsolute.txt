@@ -1,0 +1,7 @@
+C:\projects\test\changelog\dal\bin\Debug\dal.dll.config
+C:\projects\test\changelog\dal\bin\Debug\dal.dll
+C:\projects\test\changelog\dal\bin\Debug\dal.pdb
+C:\projects\test\changelog\dal\bin\Debug\Newtonsoft.Json.dll
+C:\projects\test\changelog\dal\bin\Debug\Newtonsoft.Json.xml
+C:\projects\test\changelog\dal\obj\Debug\dal.dll
+C:\projects\test\changelog\dal\obj\Debug\dal.pdb

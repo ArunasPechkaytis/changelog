@@ -1,0 +1,91 @@
+﻿@model changelog.Models.ChangeLogModel
+
+@{
+    ViewBag.Title = "Просмотр логирования";
+    Layout = "~/Views/Shared/_ChangeLog.cshtml";
+}
+
+<!-- PRELOADER -->
+<div class="spn_hol">
+    <div class="spinner">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
+</div>
+<!-- END PRELOADER -->
+@Html.Partial("~/Views/partial/_header.cshtml")
+
+<!-- =========================
+     START ABOUT US SECTION
+============================== -->
+
+
+<section class="about page" id="ABOUT">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <!-- ABOUT US SECTION TITLE-->
+                <div class="section_title">
+                    <h2>Проекты логирования</h2>
+                    <p>Просмотр комментариев и историю изменений</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="inner_about_area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="about_phone wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">
+                        <img width="466px" src="~/resources/images/git.png" />
+                    </div>
+                </div>
+                <div class="col-md-6  wow fadeInRight" data-wow-duration="1s" data-wow-delay=".5s">
+                    <!-- TITLE -->
+                    <div class="inner_about_title">
+                        <h2>Журнал <b>проекта    </b></h2>
+                        <p>Ниже проекты .</p>
+                    </div>
+                    <div class="inner_about_desc">
+
+                        <!-- SINGLE DESC -->
+                        <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="1s">
+                            <!-- ICON -->
+                            <div><i class="pe-7s-timer"></i></div>
+                            <!-- HEADING DESCRIPTION -->
+                            <h3><a href="ChangeLog/project?id=1">Проект AVIAV3</a></h3>
+                            <p>Авиабронирование</p>
+                        </div>
+                        <!-- END SINGLE DESC -->
+                        <!-- SINGLE DESC -->
+                        <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="1.5s">
+                            <!-- ICON -->
+                            <div><i class="pe-7s-target"></i></div>
+                            <!-- HEADING DESCRIPTION -->
+                            <h3><a href="ChangeLog/project?id=2">Проект #2</a></h3>
+                            <p>О проекте #2</p>
+                        </div>
+                        <!-- END SINGLE DESC -->
+                        <!-- SINGLE DESC -->
+                        <div class="single_about_area fadeInUp wow" data-wow-duration=".5s" data-wow-delay="2s">
+                            <!-- ICON -->
+                            <div><i class="pe-7s-stopwatch"></i></div>
+                            <!-- HEADING DESCRIPTION -->
+                            <h3><a href="ChangeLog/project?id=3">Проект #3</a></h3>
+                            <p>О проекте #3</p>
+                        </div>
+                        <!-- END SINGLE DESC -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br />
+</section>
+<!-- End About Us -->
+
+@Html.Partial("~/Views/partial/_testimonial.cshtml")

@@ -1,0 +1,68 @@
+﻿@model changelog.Models.ChangeLogModel
+
+<!-- =========================
+     START TESTIMONIAL SECTION
+============================== -->
+
+<section id="TESTIMONIAL" class="testimonial parallax">
+    <div class="section_overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 wow bounceInDown">
+                    <div id="carousel-example-caption-testimonial" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            @for (int iLi = 0; iLi <= Model._db_author.Count() - 1; iLi++)
+                            {
+                                if (@iLi == 0)
+                                {
+                                    <li data-target="#carousel-example-caption-testimonial" data-slide-to="@iLi" class="active"></li>
+                                }
+                                else
+                                {
+                                    <li data-target="#carousel-example-caption-testimonial" data-slide-to="@iLi"></li>
+                                }
+                            }
+                        </ol>
+                        @{
+                            string sActive = "active";
+                        }
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner">
+                            @foreach (var xrow_author in Model._db_author)
+                            {
+
+                                <div class="item @sActive">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <!-- IMAGE -->
+                                                <img src=@Url.Content(xrow_author.AuthorAvatarUrl) alt="">
+                                                <div class="testimonial_caption">
+                                                    <!-- DESCRIPTION -->
+                                                    <h2>@xrow_author.AuthorDisplayName</h2>
+                                                    <h4><a target="_blank" href=@Url.Content("mailto:" + xrow_author.AuthorEmailAddress + "?subject=Уважаемая(ый)" + xrow_author.AuthorDisplayName)><span>Написать письмо</span></a> <a target="_blank" href=@Url.Content(xrow_author.AuthorLinks)>Профиль пользователя</a></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                              sActive = "";
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<!-- END TESTIMONIAL SECTION -->

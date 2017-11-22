@@ -1,0 +1,10 @@
+C:\projects\test\changelog\jsonParse\obj\Debug\jsonParse.csprojResolveAssemblyReference.cache
+C:\projects\test\changelog\jsonParse\bin\Debug\jsonParse.exe.config
+C:\projects\test\changelog\jsonParse\bin\Debug\jsonParse.exe
+C:\projects\test\changelog\jsonParse\bin\Debug\jsonParse.pdb
+C:\projects\test\changelog\jsonParse\bin\Debug\dal.dll
+C:\projects\test\changelog\jsonParse\bin\Debug\Newtonsoft.Json.dll
+C:\projects\test\changelog\jsonParse\bin\Debug\dal.pdb
+C:\projects\test\changelog\jsonParse\bin\Debug\Newtonsoft.Json.xml
+C:\projects\test\changelog\jsonParse\obj\Debug\jsonParse.exe
+C:\projects\test\changelog\jsonParse\obj\Debug\jsonParse.pdb

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html>
+<!--
+    ChangeLog - проект по отображению логов
+    Site: changelog.corteos.ru
+-->
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Html.Partial("~/Views/partial/_head.cshtml")
+    
+</head>
+<body>
+
+
+    <div>
+        @RenderBody()
+    </div>
+
+    @Html.Partial("~/Views/partial/_footer.cshtml")
+    @Html.Partial("~/Views/partial/_script.cshtml")
+    
+</body>
+</html>
